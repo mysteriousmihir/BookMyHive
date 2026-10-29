@@ -68,7 +68,14 @@ frontend/src
 ## 3. Entities & relationships
 
 ```mermaid
-info
+erDiagram
+    USER ||--o{ BOOKING : "makes (1:N)"
+    SHOW ||--o{ BOOKING : "has (1:N)"
+    EVENT ||--o{ SHOW : "is screened in (1:N)"
+    VENUE ||--o{ SHOW : "hosts (1:N)"
+    BOOKING ||--|| PAYMENT : "paid by (1:1)"
+    EVENT }o--o{ GENRE : "tagged with (N:M)"
+    BOOKING ||--o{ BOOKING_SEATS : "reserves"
 ```
 
 | Relationship | Type | Implementation |
